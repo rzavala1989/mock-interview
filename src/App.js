@@ -12,7 +12,7 @@ function App() {
     </div>
   );
 }
-
+//
 const BuggyButtons = () => {
   const [openCount, setOpenCount] = useState(0);
   const IDs = [1, 2, 3, 4, 5];
@@ -30,16 +30,17 @@ const BuggyButtons = () => {
         <div
           style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}
         >
-          {IDs.map((item) => {
+          {IDs.map((item, index) => (
             <div
               style={{
                 marginRight: 10,
               }}
               id={item}
+              key={`button-${index}`}
             >
               <BuggyButton openCount={openCount} setOpenCount={setOpenCount} />
-            </div>;
-          })}
+            </div>
+          ))}
         </div>
         <div style={{ alignSelf: 'center', marginTop: 20 }}>
           {'There ' + verb + openCount + ' open ' + noun}
@@ -49,7 +50,11 @@ const BuggyButtons = () => {
   );
 };
 
-const BuggyButton = (openCount, setOpenCount) => {
+//
+
+s;
+
+const BuggyButton = ({ openCount, setOpenCount }) => {
   const [isOpen, setIsOpen] = useState(false);
   return isOpen ? (
     <img
